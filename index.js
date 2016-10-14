@@ -7,9 +7,10 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 // initializing express app
 const app = express();
-
-
-
+var Auth0Strategy = require('passport-auth0');
+//var router = express.Router();
+var passport = require('passport');
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 //DB Setup
  
 mongoose.connect('mongodb://localhost:auth/auth');
@@ -26,10 +27,17 @@ app.use(bodyParser.json({type:'*/*'}))
 
 router(app);
 
+
 // server Setup
 const port = process.env.PORT || 3090;
+
 
 // forwarding incoming request to express  app
 const server = http.createServer(app);
 server.listen(port);
 console.log('listing on :', port);
+
+
+
+
+

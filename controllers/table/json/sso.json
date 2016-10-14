@@ -1,0 +1,37 @@
+{
+  "tableName":"sso",
+  "tableHeader":[
+      {
+        "key": "Hours",
+        "name": "Hours"
+      },
+      {
+        "key": "In Scope",
+        "name": "In Scope"
+      },
+      {
+        "key": "Task",
+        "name": "Task"
+      }
+    ],
+  "tableRows":[
+    {
+      "In Scope": "yes",
+      "Task": "Configure Metadata and Attribute Mapping with SAML 2.0 Client",
+      "Hours": "5"
+    },
+    {
+      "In Scope": "no",
+      "Task": "Configure SAML 2.0 Client",
+      "Hours": "20"
+    },
+    {
+      "In Scope": "yes",
+      "Task": "Create Custom SSO Plug-in",
+      "Hours": "60"
+    }
+  ],
+  "tableRowCount":3,
+  "tableColumnCount":3,
+  "slectedIndex":[]
+}

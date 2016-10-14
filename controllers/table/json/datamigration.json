@@ -1,0 +1,152 @@
+{
+  "tableName":"Data Migration From Jive to Jive (Per 25000 pices of content)",
+  "tableHeader":[
+      {
+        "key": "Hours",
+        "name": "Hours"
+      },
+      {
+        "key": "In Scope",
+        "name": "In Scope"
+      },
+      {
+        "key": "Task",
+        "name": "Task"
+      }
+    ],
+  "tableRows": [
+    {
+      "In Scope": "No",
+      "Task": "Migrate Users",
+      "Hours": "10"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Places",
+      "Hours": "10"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Jive Documents",
+      "Hours": "10"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Uploaded Documents",
+      "Hours": "10"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Discussions",
+      "Hours": "20"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Questions",
+      "Hours": "20"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Ideas",
+      "Hours": "20"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Polls",
+      "Hours": "20"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Projects",
+      "Hours": "10"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Task",
+      "Hours": "10"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Blogs / Blogpost",
+      "Hours": "20"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Bookmarks",
+      "Hours": "10"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Events",
+      "Hours": "25"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Videos",
+      "Hours": "25"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Ratings",
+      "Hours": "10"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Likes",
+      "Hours": "10"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate @ mentions",
+      "Hours": "30"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Categories",
+      "Hours": "10"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Migrate Status Updates",
+      "Hours": "20"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Customization Plug-ins for Legacy Jive Instances",
+      "Hours": "60"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Initial Data Load Sample",
+      "Hours": "40"
+    },
+    {
+      "In Scope": "No",
+      "Task": "QA / Bug Fixes (10 hrs per content type)",
+      "Hours": "60"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Dry Run",
+      "Hours": "20"
+    },
+    {
+      "In Scope": "No",
+      "Task": "QA / Bug Fixes",
+      "Hours": "40"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Go Live",
+      "Hours": "40"
+    },
+    {
+      "In Scope": "No",
+      "Task": "Fix Corrupt Data",
+      "Hours": "40"
+    }
+  ],
+  "tableRowCount":27,
+  "tableColumnCount":3,
+  "slectedIndex":[]
+}

@@ -1,5 +1,13 @@
 const Authentication = require('./controllers/authentication');
 const Table =require('./controllers/table/tablecontroller');
+const Document = require('./controllers/document/createdoc');
+const Xlxs = require('./controllers/document/createxlx');
+const xls = require('./controllers/readxls/xls');
+const Excel = require('./controllers/document/xlsx');
+const accountController = require('./controllers/account/accountController');
+
+var Auth0Strategy = require('passport-auth0');
+
 const passportService = require('./services/passport');
 const passport = require('passport');
 // session false means not using cookie based authentication
@@ -19,4 +27,19 @@ app.get('/tables',requireAuth,Table.getTables);
 app.get('/table/:id',requireAuth,Table.getTable);
 app.post('/table',requireAuth,Table.postTable);
 
+app.post('/jcstable',Table.PostJcstable);
+
+
+app.get('/document',Document.createDoc);
+app.post('/xlsx',Xlxs.createxls);
+app.post('/xlstojson',xls.readxls);
+
+app.post('/excel',Excel.generateXlsx);
+app.get('/excel',Excel.downloadExcel);
+
+// account 
+app.get('/account',accountController.fetchAccount);
+app.post('/account',accountController.createAccount);
+app.delete('/account/id',accountController.deleteAccount);
+app.put('/account',accountController.updateAccount);
 }

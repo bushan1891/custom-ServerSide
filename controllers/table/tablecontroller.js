@@ -3,7 +3,7 @@ const Table = require('../../models/table');
 
 
 exports.getTable = function(req,res,next){
-console.log('getTable' ,req.body);
+	console.log('getTable' ,req.body);
 }
 
 exports.getTables = function(req,res,next){
@@ -30,4 +30,24 @@ exports.postTable = function(req,res,next){
 
 		res.send(200,{"success":"true"});
 
+}
+
+
+
+exports.PostJcstable = function(req,res,next){
+	
+		console.log(req.body)
+		const table = new Table(req.body);
+
+		table.save(function(err){
+			if(err){return next(err);}
+		});	
+
+
+		res.send(200,{"success":"true"});
+}
+
+exports.GetJcstable = function(req,res,next){
+
+		res.send(200,{"success":"true"});
 }
