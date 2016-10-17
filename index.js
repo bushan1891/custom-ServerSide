@@ -13,7 +13,7 @@ var passport = require('passport');
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 //DB Setup
  
-//mongoose.connect('mongodb://localhost:auth/auth');
+mongoose.connect('mongodb://root:root@ds057176.mlab.com:57176/jcstest');
 
 // App set up
 
@@ -21,7 +21,7 @@ var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 // morgan is a logging middleware very useful for debugging
 // body parser used for parsing json data
 
-//app.use(morgan('combined'));
+app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.json({type:'*/*'}))
 
