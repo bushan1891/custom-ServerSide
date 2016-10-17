@@ -1,6 +1,5 @@
 const User = require('../models/user');
 const jwt = require('jwt-simple');
-const config = require('../config');
 
 // jwt by default will have sub
 function tokenForUser(user){

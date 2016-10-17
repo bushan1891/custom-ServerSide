@@ -1,6 +1,5 @@
 const passport = require('passport');
 const User = require('../models/user');
-const config = require('../config');
 const JWtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 
@@ -9,7 +8,7 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 // secretOrKey > used to hash token when issued
 const jwtOptions ={
   jwtFromRequest : ExtractJwt.fromHeader('autherization'),
-  secretOrKey:config.secret
+  secretOrKey:'this is a secret'
 };
 
 // create jwt stategy
