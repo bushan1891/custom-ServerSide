@@ -25,6 +25,7 @@
     "morgan": "^1.7.0",
     "nodemon": "^1.10.2",
     "officegen-2": "^0.3.7",
+    "officegen":"*",
     "passport": "^0.3.2",
     "passport-auth0": "^0.5.2",
     "passport-jwt": "^2.1.0",
