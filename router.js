@@ -42,4 +42,9 @@ app.get('/account',accountController.fetchAccount);
 app.post('/account',accountController.createAccount);
 app.delete('/account/id',accountController.deleteAccount);
 app.put('/account',accountController.updateAccount);
+
+
+app.get('/test-endpoint',function(req,res,next){
+    res.send(new Date());
+})
 }

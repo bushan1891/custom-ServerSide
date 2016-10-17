@@ -1,0 +1,9 @@
+
+{
+  "name": "Node Backend JCS App ",
+  "description": "JCS custom app",
+  "repository": "https://github.com/bushan1891/customJcs-ServerSide",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
