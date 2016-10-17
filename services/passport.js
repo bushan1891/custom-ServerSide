@@ -35,7 +35,7 @@ user.comparePassword(password, function(err,isMatch){
 // secretOrKey > used to hash token when issued
 const jwtOptions ={
   jwtFromRequest : ExtractJwt.fromHeader('authorization'),
-  secretOrKey:config.secret
+  secretOrKey:'this is a secret'
 };
 
 
