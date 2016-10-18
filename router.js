@@ -5,6 +5,7 @@ const Xlxs = require('./controllers/document/createxlx');
 const xls = require('./controllers/readxls/xls');
 const Excel = require('./controllers/document/xlsx');
 const accountController = require('./controllers/account/accountController');
+const templateController = require('./controllers/template/templateController');
 
 var Auth0Strategy = require('passport-auth0');
 

@@ -10,5 +10,5 @@ const templateSchema = new Schema({
  templateSchema.pre('save',function(next){
 	next();
 });
-const ModelClass = mongoose.model( templateSchema);
+const ModelClass = mongoose.model('template',templateSchema);
 module.exports = ModelClass;
