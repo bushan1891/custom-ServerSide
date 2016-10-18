@@ -47,4 +47,13 @@ app.put('/account',accountController.updateAccount);
 app.get('/test-endpoint',function(req,res,next){
     res.send(new Date());
 })
+
+// Template 
+app.get('/template',templateController.fetchTemplate);
+app.post('/template',templateController.createTemplate);
+app.delete('/template/id',templateController.deleteTemplate);
+app.put('/template',templateController.updateTemplate);
+
+
+
 }
