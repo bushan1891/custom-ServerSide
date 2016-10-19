@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const templateSchema = new Schema({
     cart:Array,
     otherItem:Array,
-    Title:String	
+    templateName:String	
 });
  templateSchema.pre('save',function(next){
 	next();
