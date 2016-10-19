@@ -5,9 +5,9 @@ module.exports={
     // save the Template information 
         console.log('Template',req.body);
 
-       const Template = new Template(req.body);
+       const template = new Template(req.body);
 
-		Template.save(function(err){
+		template.save(function(err){
 			if(err){return next(err);}
 		});	
 
