@@ -42,7 +42,7 @@ app.get('/excel',Excel.downloadExcel);
 app.get('/account',accountController.fetchAccount);
 app.post('/account',accountController.createAccount);
 app.delete('/account/id',accountController.deleteAccount);
-app.put('/account',accountController.updateAccount);
+app.put('/account/:id',accountController.updateAccount);
 
 
 app.get('/test-endpoint',function(req,res,next){

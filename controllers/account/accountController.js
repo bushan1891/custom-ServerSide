@@ -29,7 +29,21 @@ module.exports={
         
     },
     updateAccount : function(req,res,next){
-        
+         console.log('At update account',req.params.id); 
+          const updateAccount = req.body;  
+          
+          Account.update({_id:req.params.id},updateAccount,function(err,account){
+               if(err){return next(err);}
+               res.send(account);
+          })  
+
+
+
+          
+
+
+
+
     }
 
 }
