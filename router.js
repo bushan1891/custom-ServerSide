@@ -6,7 +6,7 @@ const xls = require('./controllers/readxls/xls');
 const Excel = require('./controllers/document/xlsx');
 const accountController = require('./controllers/account/accountController');
 const templateController = require('./controllers/template/templateController');
-
+const room_controller = require('./controllers/collab/room_controller');
 var Auth0Strategy = require('passport-auth0');
 
 const passportService = require('./services/passport');
@@ -55,6 +55,10 @@ app.post('/template',templateController.createTemplate);
 app.delete('/template/id',templateController.deleteTemplate);
 app.put('/template',templateController.updateTemplate);
 
-
+//Collabaration
+app.get('/collab',room_controller.fetchCollabaration);
+app.post('/collab',room_controller.createCollabaration);
+app.delete('/collab/id',room_controller.deleteCollabaration);
+app.put('/collab',room_controller.updateCollabaration);
 
 }
