@@ -62,13 +62,14 @@ console.log('listing on :', port);
 
 io.on('connection', function(socket){
     console.log('connected');
-  socket.emit('an event', { some: 'data' });
+ // socket.emit('an event', { some: 'data' });
 
 socket.on('disconnect', function(){
     console.log('user disconnected');
   });
   socket.on('chat message', function(msg){
     console.log(msg);
+    socket.broadcast.emit('incoming',msg);
   });
 
 });
