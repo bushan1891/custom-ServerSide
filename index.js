@@ -15,8 +15,8 @@ var passport = require('passport');
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 //DB Setup
  
-//mongoose.connect('localhost:27017/auth');
-mongoose.connect('mongodb://root:root@ds057176.mlab.com:57176/jcstest');
+mongoose.connect('localhost:27017/auth');
+//mongoose.connect('mongodb://root:root@ds057176.mlab.com:57176/jcstest');
 //mongodb://root:root@ds057176.mlab.com:57176/jcstest
 // App set up
 

@@ -24,9 +24,9 @@ app.post('/signin',requireSignin,Authentication.signin)
 app.post('/signup',Authentication.signup);
 
 
-app.get('/tables',requireAuth,Table.getTables);
-app.get('/table/:id',requireAuth,Table.getTable);
-app.post('/table',requireAuth,Table.postTable);
+app.get('/tables',Table.getTables);
+app.get('/table/:id',Table.getTable);
+app.post('/table',Table.postTable);
 
 app.post('/jcstable',Table.PostJcstable);
 
@@ -60,5 +60,11 @@ app.get('/collab',room_controller.fetchCollabaration);
 app.post('/collab',room_controller.createCollabaration);
 app.delete('/collab/id',room_controller.deleteCollabaration);
 app.put('/collab',room_controller.updateCollabaration);
+
+
+//login call back 
+app.get('/callback',function(req,res){
+  console.log(req.params)
+})
 
 }
