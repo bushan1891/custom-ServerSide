@@ -27,15 +27,6 @@ mongoose.connect('localhost:27017/auth');
 
 
 app.use(morgan('combined'));
-
-app.use(function (req, res, next) {
-        res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':8000');
-
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-        next();
-    }
-);
 app.use(cors());
 app.use(bodyParser.json({type:'*/*'}))
 
