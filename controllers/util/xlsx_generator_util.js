@@ -39,12 +39,15 @@ worksheet.getCell('B0').value = tables[0].tableName;
 var In_Scope = worksheet.getColumn('In Scope');	
 var Hours = worksheet.getColumn('Hours');	
 var Task = worksheet.getColumn('Task');	
-var headerArray =[];
+//var headerArray =[];
 var currentLine=0;
+
+
+
 	tables.forEach(function(table){
 		
-	worksheet.addRow({});	currentLine++;
-	worksheet.addRow({});	currentLine++;
+	worksheet.addRow({});	
+	worksheet.addRow({});	
 	
 	worksheet.addRow({'Hours':table.tableName}).font = {
     name: 'times new roman',
@@ -52,7 +55,7 @@ var currentLine=0;
     family: 2,
     size: 14,
     bold: false
-   }; currentLine++;
+   }; 
 
     worksheet.addRow({'In Scope':'In Scope','Hours':'Hours','Task':'Task'}).font = {
     name: 'times new roman',
@@ -61,10 +64,10 @@ var currentLine=0;
     size: 14,
     bold: false
 };
-	headerArray.push(currentLine);
+	
 
 		table.tableRows.forEach(function(row){
-			currentLine++;
+			
 			if(row['In Scope']=='Yes'){
 				worksheet.addRow(row).font={
 					name: 'times new roman',
@@ -79,8 +82,8 @@ var currentLine=0;
 			
 		})
 
-		worksheet.addRow({});currentLine++;
-		worksheet.addRow({});currentLine++;
+		worksheet.addRow({});
+		worksheet.addRow({});
 	})
 // end  of  above loop
 
@@ -94,6 +97,7 @@ worksheet.getCell('C2').value='';
 
 // filling foreground color 
 
+var headerArray=[5,16,25,57,70,78,91,102,110,124];
 
 headerArray.forEach(function(number){
 	worksheet.getCell('A'+number).fill = {
