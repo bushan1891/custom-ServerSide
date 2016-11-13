@@ -5,7 +5,7 @@ var _ = require('lodash');
 var fs = require('fs');
 
 module.exports ={
-	createXlsx :function(payload){
+createXlsx :function(payload){
 
 var workbook = new Excel.Workbook();
 workbook.creator = 'Me';
@@ -40,8 +40,8 @@ var currentLine=0;
 
 	tables.forEach(function(table){
 		
-	worksheet.addRow({});	
-	worksheet.addRow({});	
+	worksheet.addRow({});	currentLine ++ ; console.log(currentLine); 
+	worksheet.addRow({});	currentLine ++ ; console.log(currentLine);
 	
 	worksheet.addRow({'Hours':table.tableName}).font = {
     name: 'times new roman',
@@ -49,7 +49,7 @@ var currentLine=0;
     family: 2,
     size: 14,
     bold: false
-   }; 
+   }; currentLine ++ ; console.log(currentLine);
 
     worksheet.addRow({'In Scope':'In Scope','Hours':'Hours','Task':'Task'}).font = {
     name: 'times new roman',
@@ -57,7 +57,11 @@ var currentLine=0;
     family: 2,
     size: 14,
     bold: false
-};
+};worksheet.getCell('C'+currentLine).fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF2FA5CC'}
+	};
 	
 
 		table.tableRows.forEach(function(row){
@@ -73,11 +77,11 @@ var currentLine=0;
 			else{
 			worksheet.addRow(row);	
 			}
-			
+		currentLine++;	
 		})
 
-		worksheet.addRow({});
-		worksheet.addRow({});
+		worksheet.addRow({});currentLine++;
+		worksheet.addRow({});currentLine++;
 	})
 // end  of  above loop
 
@@ -91,26 +95,26 @@ worksheet.getCell('C2').value='';
 
 // filling foreground color 
 
-var headerArray=[5,16,25,57,70,78,91,102,110,124];
+// var headerArray=[5,16,25,57,70,78,91,102,110,124];
 
 
-headerArray.forEach(function(number){
-	worksheet.getCell('A'+number).fill = {
-		type: 'pattern',
-		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
-	};
-	worksheet.getCell('B'+number).fill = {
-		type: 'pattern',
-		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
-	};
-	worksheet.getCell('C'+number).fill = {
-		type: 'pattern',
-		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
-	};
-});
+// headerArray.forEach(function(number){
+// 	worksheet.getCell('A'+number).fill = {
+// 		type: 'pattern',
+// 		pattern:'solid',
+// 		fgColor:{argb:'FF2FA5CC'}
+// 	};
+// 	worksheet.getCell('B'+number).fill = {
+// 		type: 'pattern',
+// 		pattern:'solid',
+// 		fgColor:{argb:'FF2FA5CC'}
+// 	};
+// 	worksheet.getCell('C'+number).fill = {
+// 		type: 'pattern',
+// 		pattern:'solid',
+// 		fgColor:{argb:'FF2FA5CC'}
+// 	};
+// });
 
 
 
@@ -119,6 +123,7 @@ headerArray.forEach(function(number){
 	    console.log("xls file is written.");
 
 	});
+
 return '';
  }
 }
