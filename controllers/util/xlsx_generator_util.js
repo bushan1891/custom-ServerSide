@@ -39,28 +39,32 @@ worksheet.getCell('B0').value = tables[0].tableName;
 var In_Scope = worksheet.getColumn('In Scope');	
 var Hours = worksheet.getColumn('Hours');	
 var Task = worksheet.getColumn('Task');	
-
-
+var headerArray =[];
+var currentLine=0;
 	tables.forEach(function(table){
 		
-		worksheet.addRow({});	
-        worksheet.addRow({});
-		worksheet.addRow({'Hours':table.tableName}).font = {
+	worksheet.addRow({});	currentLine++;
+	worksheet.addRow({});	currentLine++;
+	
+	worksheet.addRow({'Hours':table.tableName}).font = {
     name: 'times new roman',
     color: { argb: '000000' },
     family: 2,
     size: 14,
     bold: false
-};;
-		worksheet.addRow({'In Scope':'In Scope','Hours':'Hours','Task':'Task'}).font = {
+   }; currentLine++;
+
+    worksheet.addRow({'In Scope':'In Scope','Hours':'Hours','Task':'Task'}).font = {
     name: 'times new roman',
     color: { argb: 'FFFCFCFC' },
     family: 2,
     size: 14,
     bold: false
 };
+	headerArray.push(currentLine);
 
 		table.tableRows.forEach(function(row){
+			currentLine++;
 			if(row['In Scope']=='Yes'){
 				worksheet.addRow(row).font={
 					name: 'times new roman',
@@ -75,10 +79,10 @@ var Task = worksheet.getColumn('Task');
 			
 		})
 
-		worksheet.addRow({});
-		worksheet.addRow({});
-		
+		worksheet.addRow({});currentLine++;
+		worksheet.addRow({});currentLine++;
 	})
+// end  of  above loop
 
 worksheet.getCell('A1').value='Company :';
 worksheet.getCell('B1').value='Jcs Consulting Inc,';
@@ -90,21 +94,26 @@ worksheet.getCell('C2').value='';
 
 // filling foreground color 
 
-worksheet.getCell('A5').fill = {
-    type: 'pattern',
-    pattern:'solid',
-    fgColor:{argb:'FF2FA5CC'}
-};
-worksheet.getCell('B5').fill = {
-    type: 'pattern',
-    pattern:'solid',
-    fgColor:{argb:'FF2FA5CC'}
-};
-worksheet.getCell('C5').fill = {
-    type: 'pattern',
-    pattern:'solid',
-    fgColor:{argb:'FF2FA5CC'}
-};
+
+headerArray.forEach(function(number){
+	worksheet.getCell('A'+number).fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF2FA5CC'}
+	};
+	worksheet.getCell('B'+number).fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF2FA5CC'}
+	};
+	worksheet.getCell('C'+number).fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF2FA5CC'}
+	};
+});
+
+
 
 
 	workbook.xlsx.writeFile("test.xlsx").then(function() {
