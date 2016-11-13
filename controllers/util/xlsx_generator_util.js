@@ -33,23 +33,21 @@ worksheet.getCell('B0').value = tables[0].tableName;
 var In_Scope = worksheet.getColumn('In Scope');	
 var Hours = worksheet.getColumn('Hours');	
 var Task = worksheet.getColumn('Task');	
-//var headerArray =[];
-var currentLine=0;
+var headerArray =[];
+var currentLine=1;
 
 
 
 	tables.forEach(function(table){
-		
-	worksheet.addRow({});	currentLine ++ ; console.log(currentLine); 
-	worksheet.addRow({});	currentLine ++ ; console.log(currentLine);
-	
-	worksheet.addRow({'Hours':table.tableName}).font = {
+	++currentLine;
+	worksheet.addRow({'name':table.tableName}).font = {
     name: 'times new roman',
     color: { argb: '000000' },
     family: 2,
     size: 14,
     bold: false
-   }; currentLine ++ ; console.log(currentLine);
+   }; ++currentLine ;
+
 
     worksheet.addRow({'In Scope':'In Scope','Hours':'Hours','Task':'Task'}).font = {
     name: 'times new roman',
@@ -57,11 +55,9 @@ var currentLine=0;
     family: 2,
     size: 14,
     bold: false
-};worksheet.getCell('C'+currentLine).fill = {
-		type: 'pattern',
-		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
-	};
+};
+console.log('pushing',currentLine);
+headerArray.push(currentLine);
 	
 
 		table.tableRows.forEach(function(row){
@@ -77,11 +73,9 @@ var currentLine=0;
 			else{
 			worksheet.addRow(row);	
 			}
-		currentLine++;	
+		++currentLine;	
 		})
-
-		worksheet.addRow({});currentLine++;
-		worksheet.addRow({});currentLine++;
+		++currentLine;
 	})
 // end  of  above loop
 
@@ -97,24 +91,25 @@ worksheet.getCell('C2').value='';
 
 // var headerArray=[5,16,25,57,70,78,91,102,110,124];
 
+console.log('array',headerArray);
 
-// headerArray.forEach(function(number){
-// 	worksheet.getCell('A'+number).fill = {
-// 		type: 'pattern',
-// 		pattern:'solid',
-// 		fgColor:{argb:'FF2FA5CC'}
-// 	};
-// 	worksheet.getCell('B'+number).fill = {
-// 		type: 'pattern',
-// 		pattern:'solid',
-// 		fgColor:{argb:'FF2FA5CC'}
-// 	};
-// 	worksheet.getCell('C'+number).fill = {
-// 		type: 'pattern',
-// 		pattern:'solid',
-// 		fgColor:{argb:'FF2FA5CC'}
-// 	};
-// });
+headerArray.forEach(function(number){
+	worksheet.getCell('A'+number).fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF2FA5CC'}
+	};
+	worksheet.getCell('B'+number).fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF2FA5CC'}
+	};
+	worksheet.getCell('C'+number).fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF2FA5CC'}
+	};
+});
 
 
 
