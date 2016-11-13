@@ -54,7 +54,7 @@ var Task = worksheet.getColumn('Task');
 };;
 		worksheet.addRow({'In Scope':'In Scope','Hours':'Hours','Task':'Task'}).font = {
     name: 'times new roman',
-    color: { argb: '000000' },
+    color: { argb: 'FFFCFCFC' },
     family: 2,
     size: 14,
     bold: false
