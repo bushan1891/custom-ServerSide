@@ -93,17 +93,17 @@ worksheet.getCell('C2').value='';
 worksheet.getCell('A5').fill = {
     type: 'pattern',
     pattern:'solid',
-    fgColor:{argb:'FFFF0000'}
+    fgColor:{argb:'FF2FA5CC'}
 };
 worksheet.getCell('B5').fill = {
     type: 'pattern',
     pattern:'solid',
-    fgColor:{argb:'FFFF0000'}
+    fgColor:{argb:'FF2FA5CC'}
 };
 worksheet.getCell('C5').fill = {
     type: 'pattern',
     pattern:'solid',
-    fgColor:{argb:'FFFF0000'}
+    fgColor:{argb:'FF2FA5CC'}
 };
 
 
