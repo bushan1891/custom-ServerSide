@@ -26,12 +26,6 @@ worksheet.columns = [
     { header: 'Task', key: 'Task', width: 60, outlineLevel: 1,style: { font: { name: 'times new roman' },alignment : { vertical: 'middle', horizontal: 'center' } } }
 ];
 
-worksheet.getCell('A1').fill = {
-    type: 'pattern',
-    pattern:'solid',
-    fgColor:{argb:'FFFF0000'}
-};
-
 var tables = payload.data;
 console.log(tables);
 worksheet.getCell('B0').value = tables[0].tableName; 
@@ -98,6 +92,7 @@ worksheet.getCell('C2').value='';
 // filling foreground color 
 
 var headerArray=[5,16,25,57,70,78,91,102,110,124];
+
 
 headerArray.forEach(function(number){
 	worksheet.getCell('A'+number).fill = {
