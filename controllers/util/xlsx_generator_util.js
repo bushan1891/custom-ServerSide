@@ -63,8 +63,9 @@ var Task = worksheet.getColumn('Task');
 		table.tableRows.forEach(function(row){
 			if(row['In Scope']=='Yes'){
 				worksheet.addRow(row).font={
+					name: 'times new roman',
 					color:{argb:'000000'},
-					size: 14,
+					size: 13,
 					bold: true
 				}
 			}
@@ -86,6 +87,25 @@ worksheet.getCell('C1').value='';
 worksheet.getCell('A2').value='WBS Name';
 worksheet.getCell('B2').value=payload.cartName;
 worksheet.getCell('C2').value='';
+
+// filling foreground color 
+
+worksheet.getCell('A5').fill = {
+    type: 'pattern',
+    pattern:'solid',
+    fgColor:{argb:'FFFF0000'}
+};
+worksheet.getCell('B5').fill = {
+    type: 'pattern',
+    pattern:'solid',
+    fgColor:{argb:'FFFF0000'}
+};
+worksheet.getCell('C5').fill = {
+    type: 'pattern',
+    pattern:'solid',
+    fgColor:{argb:'FFFF0000'}
+};
+
 
 	workbook.xlsx.writeFile("test.xlsx").then(function() {
 	    console.log("xls file is written.");
