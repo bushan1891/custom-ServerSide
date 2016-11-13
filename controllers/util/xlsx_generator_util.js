@@ -21,11 +21,16 @@ var worksheet =  workbook.addWorksheet('test', {
 
 
 worksheet.columns = [
-    { header: 'In Scope', key: 'In Scope', width: 32 ,style: { font: { name: 'Comic Sans MS' }, alignment : { vertical: 'middle', horizontal: 'center' } } },
-    { header: 'Hours', key: 'Hours', width: 80,style: { font: { name: 'Comic Sans MS' }, alignment : { vertical: 'middle', horizontal: 'center' } } },
-    { header: 'Task', key: 'Task', width: 60, outlineLevel: 1,style: { font: { name: 'Comic Sans MS' },alignment : { vertical: 'middle', horizontal: 'center' } } }
+    { header: 'In Scope', key: 'In Scope', width: 32 ,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
+    { header: 'Hours', key: 'Hours', width: 80,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
+    { header: 'Task', key: 'Task', width: 60, outlineLevel: 1,style: { font: { name: 'times new roman' },alignment : { vertical: 'middle', horizontal: 'center' } } }
 ];
 
+worksheet.getCell('A1').fill = {
+    type: 'pattern',
+    pattern:'solid',
+    fgColor:{argb:'FFFF0000'}
+};
 
 var tables = payload.data;
 console.log(tables);
@@ -41,24 +46,25 @@ var Task = worksheet.getColumn('Task');
 		worksheet.addRow({});	
         worksheet.addRow({});
 		worksheet.addRow({'Hours':table.tableName}).font = {
-    name: 'Arial Black',
+    name: 'times new roman',
     color: { argb: '000000' },
     family: 2,
     size: 14,
-    bold: true
+    bold: false
 };;
 		worksheet.addRow({'In Scope':'In Scope','Hours':'Hours','Task':'Task'}).font = {
-    name: 'Arial Black',
+    name: 'times new roman',
     color: { argb: '000000' },
     family: 2,
     size: 14,
-    bold: true
+    bold: false
 };
 
 		table.tableRows.forEach(function(row){
 			if(row['In Scope']=='Yes'){
 				worksheet.addRow(row).font={
-					color:{argb:'FF00FF00'},
+					color:{argb:'000000'},
+					size: 14,
 					bold: true
 				}
 			}
