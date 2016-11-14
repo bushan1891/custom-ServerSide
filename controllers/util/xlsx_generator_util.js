@@ -56,7 +56,7 @@ var currentLine=1;
     size: 14,
     bold: false
 };
-console.log('pushing',currentLine);
+console.log('pushing',currentLine+1);
 headerArray.push(currentLine);
 	
 
