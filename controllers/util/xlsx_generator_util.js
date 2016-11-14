@@ -21,9 +21,9 @@ var worksheet =  workbook.addWorksheet('test', {
 
 
 worksheet.columns = [
-    { header: 'In Scope', key: 'In Scope', width: 32 ,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
-    { header: 'Hours', key: 'Hours', width: 80,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
-    { header: 'Task', key: 'Task', width: 60, outlineLevel: 1,style: { font: { name: 'times new roman' },alignment : { vertical: 'middle', horizontal: 'center' } } }
+    { header: 'In Scope', key: 'In Scope', width: 50 ,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
+    { header: 'Hours', key: 'Hours', width: 60,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
+    { header: 'Task', key: 'Task', width: 50, outlineLevel: 1,style: { font: { name: 'times new roman' },alignment : { vertical: 'middle', horizontal: 'center' } } }
 ];
 
 var tables = payload.data;
@@ -34,15 +34,16 @@ var In_Scope = worksheet.getColumn('In Scope');
 var Hours = worksheet.getColumn('Hours');	
 var Task = worksheet.getColumn('Task');	
 var headerArray =[];
-var currentLine=2;
+var currentLine=4;
 
 
-
+worksheet.addRow({});
+worksheet.addRow({});
 	tables.forEach(function(table){
 	
-	worksheet.addRow({'Hours':table.tableName}).font = {
+	worksheet.addRow({'Hours':table.tableName,'In Scope':'','Task':''}).font = {
     name: 'times new roman',
-    color: { argb: '000000' },
+    color: { argb: 'FFFCFCFC' },
     family: 2,
     size: 14,
     bold: false
@@ -65,7 +66,7 @@ headerArray.push(currentLine);
 				worksheet.addRow(row).font={
 					name: 'times new roman',
 					color:{argb:'000000'},
-					size: 13,
+					size: 11,
 					bold: true
 				}
 			}
@@ -75,12 +76,58 @@ headerArray.push(currentLine);
 		++currentLine;	
 		})
 		++currentLine;
+
+		worksheet.addRow({});
+		worksheet.addRow({}); currentLine = currentLine+2;
 	})
 // end  of  above loop
+
+// syling the header 
 
 worksheet.getCell('A1').value='Company :';
 worksheet.getCell('B1').value='Jcs Consulting Inc,';
 worksheet.getCell('C1').value='';
+
+worksheet.getCell('A1').fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF016682'}
+	};
+worksheet.getCell('A1').font = {
+    name: 'times new roman',
+    color: { argb: 'FFFCFCFC' },
+    family: 2,
+    size: 14,
+    bold: false
+};
+
+worksheet.getCell('B1').fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF016682'}
+	};
+worksheet.getCell('B1').font = {
+    name: 'times new roman',
+    color: { argb: 'FFFCFCFC' },
+    family: 2,
+    size: 14,
+    bold: false
+};
+
+worksheet.getCell('C1').fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF016682'}
+	};
+worksheet.getCell('C1').font = {
+    name: 'times new roman',
+    color: { argb: 'FFFCFCFC' },
+    family: 2,
+    size: 14,
+    bold: false
+};
+
+// end of styling header
 
 worksheet.getCell('A2').value='WBS Name';
 worksheet.getCell('B2').value=payload.cartName;
@@ -93,6 +140,7 @@ worksheet.getCell('C2').value='';
 console.log('array',headerArray);
 
 headerArray.forEach(function(number){
+	
 	worksheet.getCell('A'+number).fill = {
 		type: 'pattern',
 		pattern:'solid',
@@ -110,8 +158,24 @@ headerArray.forEach(function(number){
 	};
 });
 
-
-
+headerArray.forEach(function(number ){
+	var headernum = number-1;
+worksheet.getCell('A'+headernum).fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF2FA5CC'}
+	};
+	worksheet.getCell('B'+headernum).fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF2FA5CC'}
+	};
+	worksheet.getCell('C'+headernum).fill = {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF2FA5CC'}
+	};
+})
 
 	workbook.xlsx.writeFile("test.xlsx").then(function() {
 	    console.log("xls file is written.");
