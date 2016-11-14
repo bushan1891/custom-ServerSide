@@ -39,8 +39,8 @@ var currentLine=1;
 
 
 	tables.forEach(function(table){
-	++currentLine;
-	worksheet.addRow({'name':table.tableName}).font = {
+	
+	worksheet.addRow({'Hours':table.tableName}).font = {
     name: 'times new roman',
     color: { argb: '000000' },
     family: 2,
