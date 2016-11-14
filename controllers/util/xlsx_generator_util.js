@@ -34,7 +34,7 @@ var In_Scope = worksheet.getColumn('In Scope');
 var Hours = worksheet.getColumn('Hours');	
 var Task = worksheet.getColumn('Task');	
 var headerArray =[];
-var currentLine=1;
+var currentLine=2;
 
 
 
@@ -56,10 +56,9 @@ var currentLine=1;
     size: 14,
     bold: false
 };
-console.log('pushing',currentLine+1);
+console.log('pushing',currentLine);
 headerArray.push(currentLine);
 	
-
 		table.tableRows.forEach(function(row){
 			
 			if(row['In Scope']=='Yes'){
