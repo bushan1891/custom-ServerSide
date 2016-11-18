@@ -41,7 +41,7 @@ app.get('/excel',Excel.downloadExcel);
 // account 
 app.get('/account',accountController.fetchAccount);
 app.post('/account',accountController.createAccount);
-app.delete('/account/id',accountController.deleteAccount);
+app.delete('/account/:id',accountController.deleteAccount);
 app.put('/account/:id',accountController.updateAccount);
 
 
