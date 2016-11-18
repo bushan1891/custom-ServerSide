@@ -22,13 +22,13 @@ var worksheet =  workbook.addWorksheet('test', {
 
 worksheet.columns = [
 	{ header: 'Line item', key: 'Line item', width: 10 ,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
-    { header: 'Task', key: 'Task', width: 50, outlineLevel: 1,style: { font: { name: 'times new roman' },alignment : { vertical: 'middle', horizontal: 'center' } } },
-	{ header: 'Average Hourly Rate', key: 'Average Hourly Rate', width: 25, outlineLevel: 1,style: { font: { name: 'times new roman' },alignment : { vertical: 'middle', horizontal: 'center' } } },
-    { header: 'Low Hours', key: 'Low Hours', width: 15,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
+    { header: 'Task', key: 'Task', width: 36, outlineLevel: 1,style: { font: { name: 'times new roman' },alignment : { vertical: 'middle', horizontal: 'center' } } },
+	{ header: 'Average Hourly Rate', key: 'Average Hourly Rate', width: 20, outlineLevel: 1,style: { font: { name: 'times new roman' },alignment : { vertical: 'middle', horizontal: 'center' } } },
+    { header: 'Low Hours', key: 'Low Hours', width: 11,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
     { header: 'Hours', key: 'Hours', width: 15,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
 	{ header: 'Low Cost', key: 'Low Cost', width: 15,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
-	{ header: 'High Cost', key: 'High Cost', width: 15,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
-	{ header: 'In Scope', key: 'In Scope', width: 15,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } }
+	{ header: 'High Cost', key: 'High Cost', width: 11,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
+	{ header: 'In Scope', key: 'In Scope', width: 10,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } }
   
 ];
 
@@ -51,7 +51,7 @@ worksheet.addRow({});
     name: 'times new roman',
     color: { argb: 'FFFCFCFC' },
     family: 2,
-    size: 14,
+    size: 11,
     bold: false
    }; ++currentLine ;
 
@@ -60,7 +60,7 @@ worksheet.addRow({});
     name: 'times new roman',
     color: { argb: 'FFFCFCFC' },
     family: 2,
-    size: 14,
+    size: 11,
     bold: false
 };
 console.log('pushing',currentLine);
@@ -104,7 +104,7 @@ worksheet.getCell('A1').font = {
     name: 'times new roman',
     color: { argb: 'FFFCFCFC' },
     family: 2,
-    size: 14,
+    size: 11,
     bold: false
 };
 
@@ -117,7 +117,7 @@ worksheet.getCell('B1').font = {
     name: 'times new roman',
     color: { argb: 'FFFCFCFC' },
     family: 2,
-    size: 14,
+    size: 11,
     bold: false
 };
 
@@ -130,7 +130,7 @@ worksheet.getCell('C1').font = {
     name: 'times new roman',
     color: { argb: 'FFFCFCFC' },
     family: 2,
-    size: 14,
+    size: 11,
     bold: false
 };
 
@@ -155,8 +155,9 @@ headerArray.forEach(function(number){
 		pattern:'solid',
 		fgColor:{argb:'FF2FA5CC'}
 	};
+	
 worksheet.getCell('A'+number).value='Line item';
-
+worksheet.getCell('A'+number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
 // for task
 worksheet.mergeCells('B'+(number-1)+':B'+number);	
 	worksheet.getCell('B'+number).fill = {
@@ -165,7 +166,7 @@ worksheet.mergeCells('B'+(number-1)+':B'+number);
 		fgColor:{argb:'FF2FA5CC'}
 	};
 worksheet.getCell('B'+number).value='Task';
-
+worksheet.getCell('B'+number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
 // for Average Hourly Rate
 worksheet.mergeCells('C'+(number-1)+':C'+number);
 	worksheet.getCell('C'+number).fill = {
@@ -174,6 +175,7 @@ worksheet.mergeCells('C'+(number-1)+':C'+number);
 		fgColor:{argb:'FF2FA5CC'}
 	};
 worksheet.getCell('C'+number).value='Average Hourly Rate';
+worksheet.getCell('C'+number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
 
 // merge 4 cell that is number-1 
 
@@ -192,6 +194,7 @@ worksheet.getCell('G'+(number-1)).fill = {
 		fgColor:{argb:'FF2FA5CC'}
 	};
 	worksheet.getCell('D'+number).value='Low Hours';
+	worksheet.getCell('D'+number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
 
 // for High Hours 
 	worksheet.getCell('E'+number).fill = {
@@ -200,6 +203,7 @@ worksheet.getCell('G'+(number-1)).fill = {
 		fgColor:{argb:'FF2FA5CC'}
 	};
 	worksheet.getCell('E'+number).value='High Hours';
+	worksheet.getCell('E'+number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
 
 // for Low cost 
 	worksheet.getCell('F'+number).fill = {
@@ -208,6 +212,7 @@ worksheet.getCell('G'+(number-1)).fill = {
 		fgColor:{argb:'FF2FA5CC'}
 	};
 	worksheet.getCell('F'+number).value='Low Cost';
+	worksheet.getCell('F'+number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
 
 // High Cost 
 	worksheet.getCell('G'+number).fill = {
@@ -216,6 +221,7 @@ worksheet.getCell('G'+(number-1)).fill = {
 		fgColor:{argb:'FF2FA5CC'}
 	};
 	worksheet.getCell('G'+number).value='High Cost';
+	worksheet.getCell('G'+number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
 // Inscope 
 	worksheet.getCell('H'+number).fill = {
 		type: 'pattern',
@@ -223,6 +229,7 @@ worksheet.getCell('G'+(number-1)).fill = {
 		fgColor:{argb:'FF2FA5CC'}
 	};
 	worksheet.getCell('H'+number).value='In Scope';
+	worksheet.getCell('H'+number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
 
 });
 

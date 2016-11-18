@@ -26,7 +26,17 @@ module.exports={
 
     },
     deleteAccount : function(req,res,next){
-        
+         Account.findOne({'_id':req.params.id},function(err,account){
+       if(account){
+              account.remove();
+              res.send(200,account);
+        }
+        else{
+            res.send(404);
+        }
+
+	 
+	});
     },
     updateAccount : function(req,res,next){
          console.log('At update account',req.params.id); 

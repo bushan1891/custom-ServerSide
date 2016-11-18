@@ -25,7 +25,18 @@ module.exports={
 
     },
     deleteTemplate : function(req,res,next){
+         Template.findOne({'_id':req.params.id},function(err,Template){
+         if(err){return next(err);}
+         if(Template){
+              Template.remove();
+	          res.send(200,Template);
+         }
+         else{
+            res.send(404);
+         }
+         
         
+	});
     },
     updateTemplate : function(req,res,next){
         
