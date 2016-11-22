@@ -41,7 +41,7 @@ var Hours = worksheet.getColumn('Hours');
 var Task = worksheet.getColumn('Task');
 var headerArray =[];
 var currentLine=4;
-var avgHrRate = 5; // payload.avgHrRate
+var avgHrRate = payload.avgHrRate; // 
 
 worksheet.addRow({});
 worksheet.addRow({});
