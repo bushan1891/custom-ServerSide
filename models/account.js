@@ -6,16 +6,18 @@ const accountSchema = new Schema({
   accountName:String,
   accountWBS:Object,
   author:String,
+  avgHrRate:Number,
+  sowName:String,
   sow:[],
   created:Date,
-  projectManager:String	
+  projectManager:String
 });
 
 accountSchema.pre('save',function(next){
   const account = this;
   console.log('this is before saving ',account);
   account.created= new Date();
-  
+
 	next();
 });
 

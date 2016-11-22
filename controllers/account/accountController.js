@@ -2,14 +2,13 @@ const Account = require('../../models/account');
 module.exports={
 
     createAccount : function(req,res,next){
-    // save the account information 
+    // save the account information
         console.log('account',req.body);
-
        const account = new Account(req.body);
 
 		account.save(function(err){
 			if(err){return next(err);}
-		});	
+		});
 
 
 		res.send(200,{"success":"true"});
@@ -35,21 +34,21 @@ module.exports={
             res.send(404);
         }
 
-	 
+
 	});
     },
     updateAccount : function(req,res,next){
-         console.log('At update account',req.params.id); 
-          const updateAccount = req.body;  
-          
+         console.log('At update account',req.params.id);
+          const updateAccount = req.body;
+
           Account.update({_id:req.params.id},updateAccount,function(err,account){
                if(err){return next(err);}
                res.send(account);
-          })  
+          })
 
 
 
-          
+
 
 
 
