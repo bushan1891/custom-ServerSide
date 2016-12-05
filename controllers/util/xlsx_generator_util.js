@@ -24,9 +24,7 @@ worksheet.columns = [
 	{ header: 'Line item', key: 'Line item', width: 10 ,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
     { header: 'Task', key: 'Task', width: 36, outlineLevel: 1,style: { font: { name: 'times new roman' },alignment : { vertical: 'middle', horizontal: 'center' } } },
 	{ header: 'Average Hourly Rate', key: 'Average Hourly Rate', width: 20, outlineLevel: 1,style: { font: { name: 'times new roman' },alignment : { vertical: 'middle', horizontal: 'center' } } },
-    { header: 'Low Hours', key: 'Low Hours', width: 11,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
     { header: 'Hours', key: 'Hours', width: 15,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
-	{ header: 'Low Cost', key: 'Low Cost', width: 15,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
 	{ header: 'High Cost', key: 'High Cost', width: 11,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } },
 	{ header: 'In Scope', key: 'In Scope', width: 10,style: { font: { name: 'times new roman'}, alignment : { vertical: 'middle', horizontal: 'center' } } }
 
@@ -93,7 +91,7 @@ currentrow['High Cost']=avgHrRate*row['Hours'];
 
 // syling the header
 
-worksheet.mergeCells('B1:H1');
+worksheet.mergeCells('B1:F1');
 worksheet.getCell('A1').value='Company :';
 worksheet.getCell('C1').value='JCS Consulting Inc';
 
@@ -150,10 +148,21 @@ worksheet.getCell('B2').value=payload.cart_name;
 console.log('array',headerArray);
 
 headerArray.forEach(function(obj){
+
 // table name
 
-worksheet.getCell('C'+ (obj.number-2)).value=obj.tableName;
-worksheet.getCell('C'+ (obj.number-2)).font ={bold:true,size:13}
+
+worksheet.getCell('C'+ (obj.number-2)).font ={bold:true,size:13,color: { argb: 'FFFCFCFC' }};
+worksheet.mergeCells('A'+(obj.number-2)+':F'+(obj.number-2));
+worksheet.getCell('C'+ (obj.number-2)).fill= {
+		type: 'pattern',
+		pattern:'solid',
+		fgColor:{argb:'FF016682'}
+	};
+worksheet.getCell('C'+ (obj.number-2)).value=_.capitalize(obj.tableName);
+worksheet.getCell('C'+ (obj.number-2)).font ={bold:true,size:13,color: { argb: 'FFFCFCFC' }};
+
+
 // for line number
 	worksheet.mergeCells('A'+(obj.number-1)+':A'+obj.number);
 	worksheet.getCell('A'+obj.number).fill = {
@@ -185,57 +194,57 @@ worksheet.getCell('C'+obj.number).font={bold:true ,color: { argb: 'FFFCFCFC' },s
 
 // merge 4 cell that is number-1
 
-worksheet.mergeCells('D'+(obj.number-1)+':H'+(obj.number-1));
-worksheet.getCell('G'+(obj.number-1)).fill = {
+worksheet.mergeCells('D'+(obj.number-1)+':F'+(obj.number-1));
+worksheet.getCell('E'+(obj.number-1)).fill = {
 		type: 'pattern',
 		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
+		fgColor:{argb:'FF016682'}
 	};
-	worksheet.getCell('G'+(obj.number-1)).value='';
+	worksheet.getCell('E'+(obj.number-1)).value='';
 
 // for Low Hours
+	// worksheet.getCell('D'+obj.number).fill = {
+	// 	type: 'pattern',
+	// 	pattern:'solid',
+	// 	fgColor:{argb:'FF2FA5CC'}
+	// };
+	// worksheet.getCell('D'+obj.number).value='Low Hours';
+	// worksheet.getCell('D'+obj.number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
+
+// for High Hours
 	worksheet.getCell('D'+obj.number).fill = {
 		type: 'pattern',
 		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
+		fgColor:{argb:'FF016682'}
 	};
-	worksheet.getCell('D'+obj.number).value='Low Hours';
+	worksheet.getCell('D'+obj.number).value='High Hours';
 	worksheet.getCell('D'+obj.number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
 
-// for High Hours
+// for Low cost
+	// worksheet.getCell('F'+obj.number).fill = {
+	// 	type: 'pattern',
+	// 	pattern:'solid',
+	// 	fgColor:{argb:'FF2FA5CC'}
+	// };
+	// worksheet.getCell('F'+obj.number).value='Low Cost';
+	// worksheet.getCell('F'+obj.number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
+
+// High Cost
 	worksheet.getCell('E'+obj.number).fill = {
 		type: 'pattern',
 		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
+		fgColor:{argb:'FF016682'}
 	};
-	worksheet.getCell('E'+obj.number).value='High Hours';
+	worksheet.getCell('E'+obj.number).value='High Cost';
 	worksheet.getCell('E'+obj.number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
-
-// for Low cost
+// Inscope
 	worksheet.getCell('F'+obj.number).fill = {
 		type: 'pattern',
 		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
+		fgColor:{argb:'FF016682'}
 	};
-	worksheet.getCell('F'+obj.number).value='Low Cost';
+	worksheet.getCell('F'+obj.number).value='In Scope';
 	worksheet.getCell('F'+obj.number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
-
-// High Cost
-	worksheet.getCell('G'+obj.number).fill = {
-		type: 'pattern',
-		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
-	};
-	worksheet.getCell('G'+obj.number).value='High Cost';
-	worksheet.getCell('G'+obj.number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
-// Inscope
-	worksheet.getCell('H'+obj.number).fill = {
-		type: 'pattern',
-		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
-	};
-	worksheet.getCell('H'+obj.number).value='In Scope';
-	worksheet.getCell('H'+obj.number).font={bold:true ,color: { argb: 'FFFCFCFC' },size: 13, }
 
 });
 
@@ -244,17 +253,17 @@ headerArray.forEach(function(obj ){
 worksheet.getCell('A'+headernum).fill = {
 		type: 'pattern',
 		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
+		fgColor:{argb:'FF016682'}
 	};
 	worksheet.getCell('B'+headernum).fill = {
 		type: 'pattern',
 		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
+		fgColor:{argb:'FF016682'}
 	};
 	worksheet.getCell('C'+headernum).fill = {
 		type: 'pattern',
 		pattern:'solid',
-		fgColor:{argb:'FF2FA5CC'}
+		fgColor:{argb:'FF016682'}
 	};
 })
 
